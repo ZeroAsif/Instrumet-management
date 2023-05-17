@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container ">
+  <marquee behavior="alternate" direction=""><h1 style="color:green;">Approved Instrument</h1></marquee>
+<table class="table table-striped my-3">
+
+    <tr>
+    <th>Name</th>
+    <th>Instrumen Status</th>
+    <th>Email</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Approvel Status</th>
+    </tr>
+    {% for i in data %}
+    {% if i.Aprove %}
+    <tr>
+        <td>{{i.your_name}}</td>
+        <td>{{i.iname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.st}}</td>
+        <td>{{i.et}}</td>
+        <td>{{i.Aprove}}</td>
+    </tr>
+    {% else %}
+    <div class="container ">
+      <table class="table table-striped my-3">
+        <marquee behavior="alternate" direction=""><h1 style="color:red;">Unapproved Instrument</h1></marquee>
+        <tr>
+          <th>Name</th>
+          <th>Instrumen Status</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Approvel Status</th>
+          </tr>
+          <tr>
+            <td>{{i.your_name}}</td>
+            <td>{{i.iname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.st}}</td>
+            <td>{{i.et}}</td>
+            <td>{{i.Aprove}}</td>
+        </tr>
+      </table>
+    </div>
+     {% endif  %}
+    {% endfor %}
+  </table>
+</div>
+  {% endblock %}
